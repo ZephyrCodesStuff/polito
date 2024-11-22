@@ -2,7 +2,7 @@ frase = input().lower()
 caratteri = {}
 
 for c in frase:
-    if c.isalpha() == False:
+    if not c.isalpha():
         continue
     if c not in caratteri:
         caratteri[c] = 1
