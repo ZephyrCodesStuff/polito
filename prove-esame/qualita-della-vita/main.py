@@ -3,7 +3,6 @@ from typing import List, Dict, Union
 DATA_SOURCE: str = "20201214_QDV2020_001.csv"
 
 # Caching per i contenuti dei file
-header: List[Union[str, int, float]] = []
 data: List[Union[str, int, float]] = []
 
 labels: List[str] = []
@@ -11,12 +10,10 @@ locations: Dict[str, Dict[str, str]] = {}
 
 def main():
     # Prova a raccogliere i dati
-    global header
     global data
 
     try:
         with open(DATA_SOURCE, "r") as file:
-            header = file.readline().split(",")
             data = [line.split(",") for line in file.readlines()]
     except IOError:
         print(f"\n[!] Il file \"{DATA_SOURCE}\" non è stato trovato, o non è leggibile!")
